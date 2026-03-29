@@ -3,99 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberWare - Cyber Security Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        input, select, textarea {
-            margin: 10px 0;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>CyberWare</title>
 </head>
 <body>
-    <h1>CyberWare Contact Form</h1>
-    
-    <form id="contactForm">
-        <input type="text" id="firstName" placeholder="First Name" required>
-        <input type="text" id="lastName" placeholder="Last Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="text" id="org" placeholder="Organization" required>
-        <select id="sector" required>
-            <option value="">Select Sector</option>
-            <option value="Finance">Finance</option>
-            <option value="Healthcare">Healthcare</option>
-            <option value="Government">Government</option>
-            <option value="Technology">Technology</option>
-            <option value="Other">Other</option>
-        </select>
-        <select id="service" required>
-            <option value="">Select Service</option>
-            <option value="Consultation">Consultation</option>
-            <option value="Audit">Audit</option>
-            <option value="Training">Training</option>
-            <option value="Incident Response">Incident Response</option>
-        </select>
-        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="button" onclick="submitForm()">Submit</button>
+    <form id="contact-form" action="https://formspree.io/f/meepewbl" method="POST">
+        <!-- Other form fields -->
     </form>
-
-    <script>
-    function submitForm() {
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
-        const org = document.getElementById('org').value;
-        const sector = document.getElementById('sector').value;
-        const service = document.getElementById('service').value;
-        const message = document.getElementById('message').value;
-
-        const data = {
-            firstName,
-            lastName,
-            email,
-            org,
-            sector,
-            service,
-            message
-        };
-
-        fetch('https://formspree.io/f/YOUR_FORM_ID', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Success: ' + JSON.stringify(data));
-        })
-        .catch(error => {
-            alert('Error: ' + error);
-        });
-    }
-    </script>
 </body>
 </html>
